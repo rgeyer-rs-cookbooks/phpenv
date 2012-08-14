@@ -10,3 +10,5 @@ Installs phpenv to the "current" user environment
 
 ## Usage
 
+## TODO
+Require php-build, and possibly provide some LWRP's that do interesting things
