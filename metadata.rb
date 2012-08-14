@@ -15,3 +15,7 @@ end
 end
 
 recipe "phpenv::install", "Installs phpenv for the current user"
+
+attribute "phpenv/install_dir",
+  :display_name => "PHP Env Install Directory",
+  :required => "optional"

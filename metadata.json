@@ -1,7 +1,7 @@
 {
   "name": "phpenv",
   "description": "Installs/Configures phpenv",
-  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
+  "long_description": "# phpenv cookbook [![Build Status](https://secure.travis-ci.org/rgeyer-rs-cookbooks/phpenv.png?branch=master)](http://travis-ci.org/rgeyer-rs-cookbooks/phpenv)\n\n## Description\n\nInstalls phpenv to the \"current\" user environment\n\n## Requirements\n\n## Attributes\n\n## Usage\n\n## TODO\n* Require php-build, and possibly provide some LWRP's that do interesting things\n* Fix travis-ci foodcritic test.  It works locally, but exits with 127 when run by travis-ci, not clear why. :(\n",
   "maintainer": "Ryan J. Geyer",
   "maintainer_email": "me@ryangeyer.com",
   "license": "All rights reserved",
@@ -22,6 +22,18 @@
   "replacing": {
   },
   "attributes": {
+    "phpenv/install_dir": {
+      "display_name": "PHP Env Install Directory",
+      "required": "optional",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    }
   },
   "groupings": {
   },

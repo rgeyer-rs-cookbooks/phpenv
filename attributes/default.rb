@@ -15,3 +15,10 @@
 #  limitations under the License.
 
 default['phpenv']['git_uri'] = 'git://github.com/CHH/phpenv.git'
+
+case node['platform']
+  when 'mac_os_x'
+    default['phpenv']['install_dir'] = ::File.join(ENV['HOME'], %w{Library phpenv})
+  else
+    default['phpenv']['install_dir'] = ::File.join(ENV['HOME'], '.phpenv')
+end

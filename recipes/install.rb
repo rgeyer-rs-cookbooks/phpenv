@@ -18,7 +18,7 @@
 rightscale_marker :begin
 
 tempdir = ::File.join(Chef::Config['file_cache_path'], 'phpenv')
-unless ::File.directory?(::File.join(ENV['HOME'], '.phpenv'))
+unless ::File.directory?(node['phpenv']['install_dir'])
   git tempdir do
     repository node['phpenv']['git_uri']
     revision 'master'
@@ -28,12 +28,12 @@ unless ::File.directory?(::File.join(ENV['HOME'], '.phpenv'))
   bash "Run the phpenv installer" do
     cwd tempdir
     code <<-EOF
-  bin/phpenv-install.sh
-  UPDATE=yes bin/phpenv-install.sh
+  PHPENV_ROOT=#{node['phpenv']['install_dir']} bin/phpenv-install.sh
+  PHPENV_ROOT=#{node['phpenv']['install_dir']} UPDATE=yes bin/phpenv-install.sh
     EOF
   end
 else
-  log "phpenv is already installed at #{::File.join(ENV['HOME'], '.phpenv')} skipping installation..."
+  log "phpenv is already installed at #{node['phpenv']['install_dir']} skipping installation..."
 end
 
 rightscale_marker :end
